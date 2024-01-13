@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import index from "./index.css";
 
 let api = {
-  key: "a969311cfcbb4a83dfad2cf7478397f9",
+  key: "02ba2e827bf35f642d22918e9924f814",
   url: "https://api.openweathermap.org"
 }
 
 function App() {
+  let [query, setQuery] = useState('');
+  let [weather, setWeather] = useState({});
+
+  let search = (evt) => {
+    if (evt.key === "Enter") {
+      fetch(`${api.url}/data/2.5/weather?q=${query}&units=metric&APPID=${api.key}`)
+        .then((res) => res.json())
+        .then((result) => {
+          setQuery('');
+          setWeather(result);
+          console.log(result);
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error);
+          // Handle the error as needed
+        });
+    }
+  };
+  
 
   let dateBuilder = (d) => {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -25,16 +44,23 @@ function App() {
     <div className="search-box">
     <input type="text" className='search-bar'
     placeholder='Search...'
+    onChange={e => setQuery(e.target.value)}
+    value={query}
+    onKeyPress={search}
     />
     </div>
+    {typeof weather.main != "undefined" ? (
+    <div>
     <div className="location-box">
-    <div className="location">New York City, US</div>
+    <div className="location">{weather.name}, {weather.sys.country}</div>
     <div className="date">{dateBuilder(new Date())}</div>
     </div>
     <div className="weather-box">
-    <div className="temp">15°c</div>
-    <div className="weather">Sunny</div>
+    <div className="temp">{Math.round(weather.main.temp)}°c</div>
+    <div className="weather">{weather.weather[0].main}</div>
     </div>
+    </div>
+    ) : ('') }
     </main>
     </div>
   );

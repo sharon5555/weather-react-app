@@ -18,7 +18,7 @@ body {
   background-image: url('./assest/warm1.jpg');
   background-size: cover;
   background-position: bottom;
-  transition: 0.4 ease-out;
+  transition: 0.4 ease-in-out;
   border-radius: 10px;
 }
 

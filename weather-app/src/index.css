@@ -126,3 +126,25 @@ main {
 a {
   text-decoration: none;
 }
+
+/* Add your styles for different background classes */
+.weather-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.clear-sky {
+  background-color: #87CEEB; /* Light blue for clear sky */
+}
+
+.cloudy {
+  background-color: #B0C4DE; /* Light steel blue for cloudy */
+}
+
+.default-background {
+  background-color: #FFFFFF; /* Default background color */
+}

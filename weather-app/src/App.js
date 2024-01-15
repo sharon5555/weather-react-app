@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import WeatherBackground from './WeatherBackground';
 import index from "./index.css";
 
 let api = {
@@ -40,6 +41,7 @@ function App() {
   }
   return (
     <div className="App">
+    <WeatherBackground weatherCode={weather.weather?.[0]?.id || null} />
     <main>
     <div className="search-box">
     <input type="text" className='search-bar'
@@ -57,7 +59,12 @@ function App() {
     </div>
     <div className="weather-box">
     <div className="temp">{Math.round(weather.main.temp)}°c</div>
-    <div className="weather">{weather.weather[0].main}</div>
+    <div className="weather">
+                <img
+                  src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                  alt={weather.weather[0].description}
+                />
+              </div>
     </div>
     </div>
     ) : ('') }

@@ -45,7 +45,7 @@ function App() {
     <main>
     <div className="search-box">
     <input type="text" className='search-bar'
-    placeholder='Search...'
+    placeholder='Search For City...'
     onChange={e => setQuery(e.target.value)}
     value={query}
     onKeyPress={search}
@@ -60,7 +60,7 @@ function App() {
     <div className="weather-box">
     <div className="temp">{Math.round(weather.main.temp)}°c</div>
     <div className="weather">
-                <img
+                <img className = "weather-icon"
                   src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
                   alt={weather.weather[0].description}
                 />

@@ -22,21 +22,8 @@ body {
   border-radius: 10px;
 }
 
-.App.warm {
-  background-image: url('./assest/warm1.jpg');
-}
-.App.sunny {
-  background-image: url('./assest/sunny.jpg');
-}
-.App.rain {
-  background-image: url('./assest/rain.jpg');
-}
-.App.cloud {
-  background-image: url('./assest/cloud.jpg');
-}
-
 main {
-  min-height: 90vh ;
+  min-height: 100vh ;
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.75));
   padding: 25px;
 }
@@ -127,24 +114,8 @@ a {
   text-decoration: none;
 }
 
-/* Add your styles for different background classes */
-.weather-background {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-}
-
-.clear-sky {
-  background-color: #87CEEB; /* Light blue for clear sky */
-}
-
-.cloudy {
-  background-color: #B0C4DE; /* Light steel blue for cloudy */
-}
-
-.default-background {
-  background-color: #FFFFFF; /* Default background color */
+.weather .weather-icon {
+  width: 250px; 
+  height: 250px;
+  filter: brightness(150%) blur(5px);
 }

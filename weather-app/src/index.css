@@ -117,5 +117,4 @@ a {
 .weather .weather-icon {
   width: 250px; 
   height: 250px;
-  filter: brightness(150%) blur(5px);
 }

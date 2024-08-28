@@ -15,6 +15,7 @@ body {
   display: block;
   max-width: 500px;
   margin: auto;
+  height: auto;
   background-image: url('./assest/warm1.jpg');
   background-size: cover;
   background-position: bottom;
